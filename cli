@@ -1,0 +1,8 @@
+<?php 
+
+
+var_dump($argv);
+
+echo md5("hello") . PHP_EOL;
+echo hash("sha256","hello");
+exit;
