@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App;
 
@@ -38,7 +38,11 @@ class Api {
         if (!is_array($data)) {
             json_encode(["status"=>"error"]);
         }
-        echo json_encode($data);
+        echo json_encode([
+            "status" => "success",
+            "data" => $data,
+            "code" => 200
+        ]);
         exit;
     }
 
@@ -154,6 +158,4 @@ class Data {
     ];
 
 }
- 
-
- 
+?>
