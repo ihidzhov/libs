@@ -1,38 +1,36 @@
-var helpers = helpers || {};
-
-helpers.isArray = function (v) {
+var isArray = function (v) {
   return Object.prototype.toString.call(v) === "[object Array]";
 };
-helpers.isBool = function (v) {
+var isBool = function (v) {
   return Object.prototype.toString.call(v) === "[object Boolean]";
 };
-helpers.isNumber = function (v) {
+var isNumber = function (v) {
   Object.prototype.toString.call(v) === "[object Number]";
 };
-helpers.isNumeric = function (v) {
+var isNumeric = function (v) {
   try {
     return isFinite(v) && !isNaN(parseFloat(v));
   } catch (error) {
     return false;
   }
 };
-helpers.isString = function (v) {
+var isString = function (v) {
   return Object.prototype.toString.call(v) === "[object String]";
 };
-helpers.isObject = function (v) {
+var isObject = function (v) {
   return Object.prototype.toString.call(v) === "[object Object]";
 };
-helpers.isFunction = function (v) {
+var isFunction = function (v) {
   return typeof v === "function";
 };
-helpers.isPromise = function (v) {
+var isPromise = function (v) {
   return Object.prototype.toString.call(v) === "[object Promise]";
 };
 
-helpers.randomInt = function (min, max) {
+var randomInt = function (min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
-helpers.randomString = function (
+var randomString = function (
   len = 8,
   seeds = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
 ) {
@@ -42,7 +40,7 @@ helpers.randomString = function (
   }
   return r;
 };
-helpers.strPad = function (str, n, padString = "0") {
+var strPad = function (str, n, padString = "0") {
   let r = str.toString();
   let len = str.toString().length;
   while (len < n) {
@@ -55,9 +53,9 @@ helpers.strPad = function (str, n, padString = "0") {
   return str;
 };
 
-helpers.firstLetterUpper = function (str) {
+var firstLetterUpper = function (str) {
   return str && str[0].toUpperCase() + str.substring(1);
 };
-helpers.reverseString = function (str) {
+var reverseString = function (str) {
   return str.split("").reverse().join("");
 };
