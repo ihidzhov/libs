@@ -9,6 +9,9 @@ php -S localhost:8080 api.php
 
 ## cli
 cli provide list of tools like hashing string, working with dates or resizing images.
+```
+php cli hash md5 text
+```
 
 ## functions.js and functions.php
 functions.js and functions.php files contain list of usefull functions.
