@@ -2,7 +2,7 @@
 
 namespace App;
 
-use Closure;
+use \Closure;
 use \json_encode;
 use \rand;
 use \count;
@@ -13,8 +13,9 @@ $api = new Api($_SERVER['REQUEST_URI']);
 
 $api->get("/news", function() {
     $news = Data::NEWS;
+    $now = time();
     foreach($news as $key => $article) {
-        $date = rand(time()-(60*60*24*365),time());
+        $date = rand($now-(60*60*24*365),$now);
         $news[$key]["date"] = date("Y-m-d",$date);
         $news[$key]["time"] = date("H:i:s",$date);
         $news[$key]["author"] = Data::NAMES[rand(0,count(Data::NAMES)-1)];
@@ -46,17 +47,16 @@ class Api {
         exit;
     }
 
-    public function get(string $path, $fun) {
+    public function get(string $path, $fun) :void {
         $this->calls[$path] = $fun;
     }
 
-    public function run() {
+    public function run() :void {
         foreach($this->calls as $path => $call) {
             if ($this->uri == $path && $call instanceof Closure) {
                 $call(); 
             }
-        }
-        
+        }   
     }
 }
 
