@@ -1,8 +1,40 @@
 <?php 
+ 
+if (php_sapi_name() !== 'cli') {
+    exit;
+}
 
 
-var_dump($argv);
+if ($argv[1] == "hash") {
+    echo hash($argv[2],$argv[3]);
 
-echo md5("hello") . PHP_EOL;
-echo hash("sha256","hello");
-exit;
+    // var_dump(hash_algos());
+}
+
+ 
+
+$command = new Command;
+$command->register(function()   {
+    return 3;
+},
+);
+$command->line();
+
+$command->run();
+ 
+
+final class Command 
+{
+    public function register($fun) {
+        return $fun();
+    }
+
+    public function run() {
+
+    }
+
+    public function line() {
+        echo PHP_EOL;
+    }
+}
+ 
