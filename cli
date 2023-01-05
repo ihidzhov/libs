@@ -12,7 +12,7 @@ if ($argv[1] == "hash") {
 }
 
 
-exit;
+ 
 
 $command = new Command;
 $command->register(function()   {
@@ -22,13 +22,7 @@ $command->register(function()   {
 $command->line();
 
 $command->run();
-
-var_dump($argv);
-
-echo md5("hello") . PHP_EOL;
-echo hash("sha256","hello");
-exit;
-
+ 
 
 final class Command 
 {
@@ -44,4 +38,3 @@ final class Command
         echo PHP_EOL;
     }
 }
-
