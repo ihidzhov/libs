@@ -1,5 +1,5 @@
 <?php 
- 
+  
 if (php_sapi_name() !== 'cli') {
     exit;
 }
@@ -10,7 +10,6 @@ if ($argv[1] == "hash") {
 
     // var_dump(hash_algos());
 }
-
  
 
 $command = new Command;
@@ -36,5 +35,4 @@ final class Command
     public function line() {
         echo PHP_EOL;
     }
-}
- 
+} 
