@@ -9,6 +9,8 @@ use \count;
 use \date;
 use \time;
 
+include_once("functions.php");
+
 $api = new Api($_SERVER['REQUEST_URI']);
 
 $api->get("/news", function() {
@@ -28,6 +30,12 @@ $api->get("/randomfact", function() {
 });
 $api->get("/servertime", function() {
     Api::sendResponse(['timestamp'=>time(),'date'=>date("Y-m-d H:i:s")]);
+});
+$api->get("/ip", function() {
+    Api::sendResponse(['ip'=>getUserIP()]);
+});
+$api->get("/phpversion", function() {
+    Api::sendResponse(['phpversion'=>phpversion()]);
 });
 
 $api->run();
