@@ -26,6 +26,10 @@ $api->get("/news", function() {
 $api->get("/randomfact", function() {
     Api::sendResponse(Data::FACTS[rand(0,count(Data::FACTS)-1)]);
 });
+$api->get("/servertime", function() {
+    Api::sendResponse(['timestamp'=>time(),'date'=>date("Y-m-d H:i:s")]);
+});
+
 $api->run();
 
 
