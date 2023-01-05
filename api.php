@@ -49,7 +49,8 @@ class Api {
 
     public static function sendResponse(array $data) :void {
         if (!is_array($data)) {
-            json_encode(["status"=>"error"]);
+            echo json_encode(["status"=>"error"]);
+            exit;
         }
         echo json_encode([
             "status" => "success",
